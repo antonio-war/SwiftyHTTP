@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol HTTPRouter {
+protocol SwiftyHTTPRouter {
     var endpoint: URL? { get }
     var path: String { get }
     var method: SwiftyHTTPMethod { get }
@@ -17,7 +17,7 @@ protocol HTTPRouter {
     var request: URLRequest { get throws }
 }
 
-extension HTTPRouter {
+extension SwiftyHTTPRouter {
     private var encoder: JSONEncoder {
         return JSONEncoder()
     }
