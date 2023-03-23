@@ -9,11 +9,14 @@ import Foundation
 
 enum SwiftyHTTPContentType: ValueRepresentable {
     case application(SwiftyHTTPApplicationContentTypeValue)
+    case audio(SwiftyHTTPAudioContentTypeValue)
     
     var value: String {
         switch self {
         case .application(let swiftyHTTPApplicationContentTypeValue):
             return "application/\(swiftyHTTPApplicationContentTypeValue.rawValue)"
+        case .audio(let swiftyHTTPAudioContentTypeValue):
+            return "audio/\(swiftyHTTPAudioContentTypeValue.rawValue)"
         }
     }
 }
