@@ -13,6 +13,7 @@ enum SwiftyHTTPContentType: ValueRepresentable {
     case image(SwiftyHTTPImageContentTypeValue)
     case multipart(SwiftyHTTPMultipartContentTypeValue)
     case text(SwiftyHTTPTextContentTypeValue)
+    case video(SwiftyHTTPVideoContentTypeValue)
     
     var value: String {
         switch self {
@@ -26,6 +27,8 @@ enum SwiftyHTTPContentType: ValueRepresentable {
             return "multipart/\(swiftyHTTPMultipartContentTypeValue.rawValue)"
         case .text(let swiftyHTTPTextContentTypeValue):
             return "text/\(swiftyHTTPTextContentTypeValue.rawValue)"
+        case .video(let swiftyHTTPVideoContentTypeValue):
+            return "video/\(swiftyHTTPVideoContentTypeValue.rawValue)"
         }
     }
 }
