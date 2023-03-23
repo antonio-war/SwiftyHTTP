@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SwiftyHTTPRouter {
-    var endpoint: URL? { get }
+    var baseURL: URL? { get }
     var path: String { get }
     var method: SwiftyHTTPMethod { get }
     var headers: [SwiftyHTTPHeader] { get }
@@ -24,11 +24,10 @@ extension SwiftyHTTPRouter {
     
     var request: URLRequest {
         get throws {
-            guard let endpoint else {
+            guard let baseURL, var url = URL(string: path, relativeTo: baseURL) else {
                 throw URLError(.badURL)
             }
             
-            var url = endpoint.appendingPathExtension(path)
             url.append(queryItems: parameters.map({URLQueryItem(name: $0.key, value: $0.value)}))
             
             var request = URLRequest(url: url)
