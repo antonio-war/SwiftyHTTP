@@ -8,10 +8,10 @@
 import Foundation
 
 enum SwiftyHTTPImageContentTypeValue: String, SwiftyHTTPContentTypeValue {
-    case gif = "gif"
-    case jpeg = "jpeg"
-    case png = "png"
-    case tiff = "tiff"
+    case gif
+    case jpeg
+    case png
+    case tiff
     case vndMicrosoftIcon = "vnd.microsoft.icon"
     case xIcon = "x-icon"
     case vndDjvu = "vnd.djvu"

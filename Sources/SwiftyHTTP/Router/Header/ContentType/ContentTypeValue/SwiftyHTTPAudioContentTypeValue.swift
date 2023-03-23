@@ -8,7 +8,7 @@
 import Foundation
 
 enum SwiftyHTTPAudioContentTypeValue: String, SwiftyHTTPContentTypeValue {
-    case mpeg = "mpeg"
+    case mpeg
     case xMsWma = "x-ms-wma"
     case vndRnRelaudio = "vnd.rn-realaudio"
     case xWav = "x-wav"
