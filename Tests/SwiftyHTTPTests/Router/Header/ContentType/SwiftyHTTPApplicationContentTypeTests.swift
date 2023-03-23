@@ -10,7 +10,7 @@ import XCTest
 
 final class SwiftyHTTPApplicationContentTypeTests: XCTestCase {
     
-    private var contentType: SwiftyHTTPContentType!
+    private var contentType: SwiftyHTTPContentTypeHeaderValue!
 
     override func tearDownWithError() throws {
         try super.tearDownWithError()

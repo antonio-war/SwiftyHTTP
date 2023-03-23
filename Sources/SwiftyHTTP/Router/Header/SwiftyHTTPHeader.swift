@@ -9,9 +9,9 @@ import Foundation
 
 enum SwiftyHTTPHeader: KeyValueRecord {
     
-    case contentType(SwiftyHTTPContentType)
-    case accept(SwiftyHTTPAccept)
-    case authorization(SwiftyHTTPAuthorization)
+    case contentType(SwiftyHTTPContentTypeHeaderValue)
+    case accept(SwiftyHTTPAcceptHeaderValue)
+    case authorization(SwiftyHTTPAuthorizationHeaderValue)
     
     var key: String {
         switch self {

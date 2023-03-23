@@ -1,5 +1,5 @@
 //
-//  SwiftyHTTPAuthorization.swift
+//  SwiftyHTTPAuthorizationHeaderValue.swift
 //  
 //
 //  Created by Antonio Guerra on 23/03/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SwiftyHTTPAuthorization: SwiftyHTTPHeaderValue {
+enum SwiftyHTTPAuthorizationHeaderValue: SwiftyHTTPHeaderValue {
     case basic(String)
     case bearer(String)
     

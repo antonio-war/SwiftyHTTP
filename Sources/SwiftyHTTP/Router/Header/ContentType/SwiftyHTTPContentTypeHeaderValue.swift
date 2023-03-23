@@ -1,5 +1,5 @@
 //
-//  SwiftyHTTPContentType.swift
+//  SwiftyHTTPContentTypeHeaderValue.swift
 //  
 //
 //  Created by Antonio Guerra on 23/03/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SwiftyHTTPContentType: SwiftyHTTPHeaderValue {
+enum SwiftyHTTPContentTypeHeaderValue: SwiftyHTTPHeaderValue {
     case application(SwiftyHTTPApplicationContentTypeValue)
     case audio(SwiftyHTTPAudioContentTypeValue)
     case image(SwiftyHTTPImageContentTypeValue)
