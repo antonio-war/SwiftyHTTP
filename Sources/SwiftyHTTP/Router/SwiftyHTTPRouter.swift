@@ -12,6 +12,7 @@ protocol HTTPRouter {
     var path: String { get }
     var method: SwiftyHTTPMethod { get }
     var headers: [SwiftyHTTPHeader] { get }
+    var parameters: [SwiftyHTTPQueryParameter] { get }
     var body: SwiftyHTTPBody? { get }
     var request: URLRequest { get throws }
 }
