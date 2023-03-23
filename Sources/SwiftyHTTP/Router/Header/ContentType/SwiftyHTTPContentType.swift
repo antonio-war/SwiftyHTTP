@@ -10,6 +10,7 @@ import Foundation
 enum SwiftyHTTPContentType: ValueRepresentable {
     case application(SwiftyHTTPApplicationContentTypeValue)
     case audio(SwiftyHTTPAudioContentTypeValue)
+    case image(SwiftyHTTPImageContentTypeValue)
     
     var value: String {
         switch self {
@@ -17,6 +18,8 @@ enum SwiftyHTTPContentType: ValueRepresentable {
             return "application/\(swiftyHTTPApplicationContentTypeValue.rawValue)"
         case .audio(let swiftyHTTPAudioContentTypeValue):
             return "audio/\(swiftyHTTPAudioContentTypeValue.rawValue)"
+        case .image(let swiftyHTTPImageContentTypeValue):
+            return "image/\(swiftyHTTPImageContentTypeValue.rawValue)"
         }
     }
 }
