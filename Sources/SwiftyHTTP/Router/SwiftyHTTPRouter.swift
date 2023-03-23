@@ -8,9 +8,10 @@
 import Foundation
 
 protocol HTTPRouter {
-    var baseURL: URL { get throws }
+    var endpoint: URL { get throws }
     var path: String { get }
     var method: SwiftyHTTPMethod { get }
-    var headers: []
+    var headers: [SwiftyHTTPHeader] { get }
     var body: SwiftyHTTPBody? { get }
+    var request: URLRequest { get throws }
 }

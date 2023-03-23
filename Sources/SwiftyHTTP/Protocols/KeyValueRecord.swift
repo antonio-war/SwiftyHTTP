@@ -1,0 +1,22 @@
+//
+//  KeyValueRecord.swift
+//  
+//
+//  Created by Antonio Guerra on 23/03/23.
+//
+
+import Foundation
+
+protocol KeyStoreable {
+    associatedtype KeyType
+    
+    var key: KeyType { get }
+}
+
+protocol ValueRepresentable {
+    associatedtype ValueType
+    
+    var value: ValueType { get }
+}
+
+protocol KeyValueRecord: KeyStoreable, ValueRepresentable {}
