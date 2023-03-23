@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SwiftyHTTPAccept: ValueRepresentable {
+enum SwiftyHTTPAccept: SwiftyHTTPHeaderValue {
     case anything
     
     var value: String {

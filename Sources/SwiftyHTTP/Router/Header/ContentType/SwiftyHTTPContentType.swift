@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SwiftyHTTPContentType: ValueRepresentable {
+enum SwiftyHTTPContentType: SwiftyHTTPHeaderValue {
     case application(SwiftyHTTPApplicationContentTypeValue)
     case audio(SwiftyHTTPAudioContentTypeValue)
     case image(SwiftyHTTPImageContentTypeValue)

@@ -11,6 +11,7 @@ enum SwiftyHTTPHeader: KeyValueRecord {
     
     case contentType(SwiftyHTTPContentType)
     case accept(SwiftyHTTPAccept)
+    case authorization(SwiftyHTTPAuthorization)
     
     var key: String {
         switch self {
@@ -18,6 +19,8 @@ enum SwiftyHTTPHeader: KeyValueRecord {
             return "Content-Type"
         case .accept:
             return "Accept"
+        case .authorization:
+            return "Authorization"
         }
     }
     
@@ -27,6 +30,8 @@ enum SwiftyHTTPHeader: KeyValueRecord {
             return swiftyHTTPContentType.value
         case .accept(let swiftyHTTPAccept):
             return swiftyHTTPAccept.value
+        case .authorization(let swiftyHTTPAuthorization):
+            return swiftyHTTPAuthorization.value
         }
     }
 }
