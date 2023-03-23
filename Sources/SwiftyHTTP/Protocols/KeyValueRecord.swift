@@ -8,13 +8,13 @@
 import Foundation
 
 protocol KeyStoreable {
-    associatedtype KeyType
+    associatedtype KeyType: Hashable
     
     var key: KeyType { get }
 }
 
 protocol ValueRepresentable {
-    associatedtype ValueType
+    associatedtype ValueType: Codable
     
     var value: ValueType { get }
 }
