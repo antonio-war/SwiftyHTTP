@@ -40,7 +40,7 @@ enum TestRouter: SwiftyHTTPRouter {
     }
     
     var body: SwiftyHTTPBody? {
-        return nil
+        "Hello World"
     }
 }
 
@@ -90,5 +90,13 @@ final class SwiftyHTTPRouterTests: XCTestCase {
         let includeParameter = request.url?.query()
         XCTAssertNotNil(includeParameter)
         XCTAssertEqual(includeParameter, "include=author")
+    }
+    
+    func testBody() throws {
+        let body = request.httpBody
+        XCTAssertNotNil(body)
+        
+        let decoded = try JSONDecoder().decode(String.self, from: body!)
+        XCTAssertEqual(decoded, "Hello World")
     }
 }
