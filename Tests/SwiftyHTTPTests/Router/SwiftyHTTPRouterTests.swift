@@ -69,4 +69,26 @@ final class SwiftyHTTPRouterTests: XCTestCase {
         XCTAssertNotNil(path)
         XCTAssertEqual(path!, "/articles")
     }
+    
+    func testMethod() throws {
+        let method = request.httpMethod
+        XCTAssertNotNil(method)
+        XCTAssertEqual(method, "GET")
+    }
+    
+    func testHeaders() throws {
+        let acceptHeader = request.value(forHTTPHeaderField: "Accept")
+        XCTAssertNotNil(acceptHeader)
+        XCTAssertEqual(acceptHeader, "*/*")
+        
+        let contentType = request.value(forHTTPHeaderField: "Content-Type")
+        XCTAssertNotNil(contentType)
+        XCTAssertEqual(contentType, "application/json")
+    }
+    
+    func testParameters() throws {
+        let includeParameter = request.url?.query()
+        XCTAssertNotNil(includeParameter)
+        XCTAssertEqual(includeParameter, "include=author")
+    }
 }
