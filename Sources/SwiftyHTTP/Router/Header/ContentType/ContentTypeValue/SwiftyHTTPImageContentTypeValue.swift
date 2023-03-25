@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SwiftyHTTPImageContentTypeValue: String, SwiftyHTTPContentTypeValue {
+public enum SwiftyHTTPImageContentTypeValue: String, SwiftyHTTPContentTypeValue {
     case gif
     case jpeg
     case png

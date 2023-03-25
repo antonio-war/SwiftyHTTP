@@ -1,6 +1,9 @@
-public struct SwiftyHTTP {
-    public private(set) var text = "Hello, World!"
+import Foundation
 
-    public init() {
+public struct SwiftyHTTP {
+    private init() {}
+    
+    public static func dataTask(with request: URLRequestRepresentable, completionHandler: (Data?, URLResponse?, Error?) -> Void) {
+        
     }
 }

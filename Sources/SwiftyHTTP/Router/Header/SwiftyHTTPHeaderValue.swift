@@ -7,4 +7,4 @@
 
 import Foundation
 
-protocol SwiftyHTTPHeaderValue: ValueRepresentable {}
+public protocol SwiftyHTTPHeaderValue: ValueRepresentable {}

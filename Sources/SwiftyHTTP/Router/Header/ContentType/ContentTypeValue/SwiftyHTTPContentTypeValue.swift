@@ -7,4 +7,4 @@
 
 import Foundation
 
-protocol SwiftyHTTPContentTypeValue: RawRepresentable where RawValue == String {}
+public protocol SwiftyHTTPContentTypeValue: RawRepresentable where RawValue == String {}

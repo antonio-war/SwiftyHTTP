@@ -7,16 +7,16 @@
 
 import Foundation
 
-protocol KeyStoreable {
+public protocol KeyRepresentable{
     associatedtype KeyType: Hashable
     
     var key: KeyType { get }
 }
 
-protocol ValueRepresentable {
+public protocol ValueRepresentable {
     associatedtype ValueType: Codable
     
     var value: ValueType { get }
 }
 
-protocol KeyValueRecord: KeyStoreable, ValueRepresentable {}
+public protocol KeyValueRepresentable: KeyRepresentable, ValueRepresentable {}

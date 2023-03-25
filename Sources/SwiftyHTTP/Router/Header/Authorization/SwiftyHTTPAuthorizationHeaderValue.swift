@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum SwiftyHTTPAuthorizationHeaderValue: SwiftyHTTPHeaderValue {
+public enum SwiftyHTTPAuthorizationHeaderValue: SwiftyHTTPHeaderValue {
     case basic(String)
     case bearer(String)
     
-    var value: String {
+    public var value: String {
         switch self {
             case .basic(let encodedCredentials):
                 return "Basic \(encodedCredentials)"

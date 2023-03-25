@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct SwiftyHTTPQueryParameter: KeyValueRecord {
-    var key: String
-    var value: String
+public struct SwiftyHTTPQueryParameter: KeyValueRepresentable {
+    public var key: String
+    public var value: String
     
     init(key: String, value: String) {
         self.key = key

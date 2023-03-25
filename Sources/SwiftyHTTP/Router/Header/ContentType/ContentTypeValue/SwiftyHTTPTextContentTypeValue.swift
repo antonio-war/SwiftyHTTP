@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SwiftyHTTPTextContentTypeValue: String, SwiftyHTTPContentTypeValue {
+public enum SwiftyHTTPTextContentTypeValue: String, SwiftyHTTPContentTypeValue {
     case css
     case csv
     case html

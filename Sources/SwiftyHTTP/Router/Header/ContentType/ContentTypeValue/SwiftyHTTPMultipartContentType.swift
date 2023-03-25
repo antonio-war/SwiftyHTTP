@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SwiftyHTTPMultipartContentTypeValue: String, SwiftyHTTPContentTypeValue {
+public enum SwiftyHTTPMultipartContentTypeValue: String, SwiftyHTTPContentTypeValue {
     case mixed
     case alternative
     case related

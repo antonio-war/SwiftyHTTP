@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum SwiftyHTTPHeader: KeyValueRecord {
+public enum SwiftyHTTPHeader: KeyValueRepresentable {
     
     case contentType(SwiftyHTTPContentTypeHeaderValue)
     case accept(SwiftyHTTPAcceptHeaderValue)
     case authorization(SwiftyHTTPAuthorizationHeaderValue)
     
-    var key: String {
+    public var key: String {
         switch self {
         case .contentType:
             return "Content-Type"
@@ -24,7 +24,7 @@ enum SwiftyHTTPHeader: KeyValueRecord {
         }
     }
     
-    var value: String? {
+    public var value: String? {
         switch self {
         case .contentType(let swiftyHTTPContentType):
             return swiftyHTTPContentType.value

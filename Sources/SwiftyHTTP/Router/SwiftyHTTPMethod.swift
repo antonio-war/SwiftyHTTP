@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SwiftyHTTPMethod: String {
+public enum SwiftyHTTPMethod: String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"

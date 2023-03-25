@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum SwiftyHTTPAcceptHeaderValue: SwiftyHTTPHeaderValue {
+public enum SwiftyHTTPAcceptHeaderValue: SwiftyHTTPHeaderValue {
     case anything
     
-    var value: String {
+    public var value: String {
         switch self {
         case .anything:
             return "*/*"

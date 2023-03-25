@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SwiftyHTTPContentTypeHeaderValue: SwiftyHTTPHeaderValue {
+public enum SwiftyHTTPContentTypeHeaderValue: SwiftyHTTPHeaderValue {
     case application(SwiftyHTTPApplicationContentTypeValue)
     case audio(SwiftyHTTPAudioContentTypeValue)
     case image(SwiftyHTTPImageContentTypeValue)
@@ -15,7 +15,7 @@ enum SwiftyHTTPContentTypeHeaderValue: SwiftyHTTPHeaderValue {
     case text(SwiftyHTTPTextContentTypeValue)
     case video(SwiftyHTTPVideoContentTypeValue)
     
-    var value: String {
+    public var value: String {
         switch self {
         case .application(let swiftyHTTPApplicationContentTypeValue):
             return "application/\(swiftyHTTPApplicationContentTypeValue.rawValue)"

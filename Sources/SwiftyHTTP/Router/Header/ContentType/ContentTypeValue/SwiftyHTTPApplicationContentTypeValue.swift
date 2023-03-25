@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SwiftyHTTPApplicationContentTypeValue: String, SwiftyHTTPContentTypeValue {
+public enum SwiftyHTTPApplicationContentTypeValue: String, SwiftyHTTPContentTypeValue {
     case ediX12 = "EDI-X12"
     case edifact = "EDIFACT"
     case javascript

@@ -7,17 +7,16 @@
 
 import Foundation
 
-protocol SwiftyHTTPRouter {
+public protocol SwiftyHTTPRouter: URLRequestRepresentable {
     var baseURL: URL? { get }
     var path: String { get }
     var method: SwiftyHTTPMethod { get }
     var headers: [SwiftyHTTPHeader] { get }
     var parameters: [SwiftyHTTPQueryParameter] { get }
     var body: SwiftyHTTPBody? { get }
-    var request: URLRequest { get throws }
 }
 
-extension SwiftyHTTPRouter {
+public extension SwiftyHTTPRouter {
     private var encoder: JSONEncoder {
         return JSONEncoder()
     }

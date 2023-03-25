@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SwiftyHTTPVideoContentTypeValue: String, SwiftyHTTPContentTypeValue {
+public enum SwiftyHTTPVideoContentTypeValue: String, SwiftyHTTPContentTypeValue {
     case mpeg
     case mp4
     case quicktime
