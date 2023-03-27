@@ -15,12 +15,13 @@ public struct SwiftyHTTP {
                     return
                 }
                 completion(.success(SwiftyHTTPResponse(urlResponse: response, body: data)))
-            }
+            }.resume()
         } catch {
             completion(.failure(error))
         }
     }
     
+    @available(iOS 13.0.0, *)
     public static func request(with representable: URLRequestRepresentable) async -> Result<SwiftyHTTPResponse<Data>, Error> {
         return await withCheckedContinuation { continuation in
             request(with: representable) { result in
@@ -45,6 +46,7 @@ public struct SwiftyHTTP {
         }
     }
     
+    @available(iOS 13.0.0, *)
     public static func request<Body: SwiftyHTTPBody>(with representable: URLRequestRepresentable, body: Body.Type) async -> Result<SwiftyHTTPResponse<Body>, Error> {
         return await withCheckedContinuation { continuation in
             request(with: representable, body: body) { result in
