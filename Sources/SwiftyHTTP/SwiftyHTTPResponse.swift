@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SwiftyHTTPResponse<Body: Codable>: URLResponseRepresentable {
+public struct SwiftyHTTPResponse<Body: SwiftyHTTPBody>: URLResponseRepresentable {
     
     private var urlResponse: HTTPURLResponse
     public var body: Body
@@ -21,9 +21,9 @@ public struct SwiftyHTTPResponse<Body: Codable>: URLResponseRepresentable {
     }
     
     public var headers: [SwiftyHTTPHeader] {
+        // TODO: Add headers decoding
         []
     }
-    
 
     init(urlResponse: HTTPURLResponse, body: Body) {
         self.urlResponse = urlResponse

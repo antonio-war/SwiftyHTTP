@@ -7,4 +7,4 @@
 
 import Foundation
 
-public typealias SwiftyHTTPBody = Encodable
+public typealias SwiftyHTTPBody = Codable
