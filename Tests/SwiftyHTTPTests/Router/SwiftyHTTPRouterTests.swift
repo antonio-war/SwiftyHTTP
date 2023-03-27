@@ -8,43 +8,43 @@
 import XCTest
 @testable import SwiftyHTTP
 
-enum TestRouter: SwiftyHTTPRouter {
-    case articles
+final class SwiftyHTTPRouterTests: XCTestCase {
     
-    var baseURL: URL? {
-        URL(string: "http://example.com")
-    }
-    
-    var path: String {
-        switch self {
-        case .articles:
-            return "articles"
+    enum TestRouter: SwiftyHTTPRouter {
+        case articles
+        
+        var baseURL: URL? {
+            URL(string: "http://example.com")
+        }
+        
+        var path: String {
+            switch self {
+            case .articles:
+                return "articles"
+            }
+        }
+        
+        var method: SwiftyHTTPMethod {
+            return .get
+        }
+        
+        var headers: [SwiftyHTTPHeader] {
+            return [
+                .accept(.anything),
+                .contentType(.application(.json)),
+            ]
+        }
+        
+        var parameters: [SwiftyHTTPQueryParameter] {
+            return [
+                .init(key: "include", value: "author")
+            ]
+        }
+        
+        var body: SwiftyHTTPBody? {
+            "Hello World"
         }
     }
-    
-    var method: SwiftyHTTPMethod {
-        return .get
-    }
-    
-    var headers: [SwiftyHTTPHeader] {
-        return [
-            .accept(.anything),
-            .contentType(.application(.json)),
-        ]
-    }
-    
-    var parameters: [SwiftyHTTPQueryParameter] {
-        return [
-            .init(key: "include", value: "author")
-        ]
-    }
-    
-    var body: SwiftyHTTPBody? {
-        "Hello World"
-    }
-}
-
-final class SwiftyHTTPRouterTests: XCTestCase {
 
     private var request: URLRequest!
     
@@ -59,9 +59,14 @@ final class SwiftyHTTPRouterTests: XCTestCase {
     }
     
     func testHost() throws {
-        let host = request.url?.host()
-        XCTAssertNotNil(host)
-        XCTAssertEqual(host!, "example.com")
+        if #available(iOS 16.0, *) {
+            let host = request.url?.host()
+            XCTAssertNotNil(host)
+            XCTAssertEqual(host!, "example.com")
+        } else {
+            // Fallback on earlier versions
+        }
+        
     }
     
     func testPath() throws {
@@ -87,9 +92,13 @@ final class SwiftyHTTPRouterTests: XCTestCase {
     }
     
     func testParameters() throws {
-        let includeParameter = request.url?.query()
-        XCTAssertNotNil(includeParameter)
-        XCTAssertEqual(includeParameter, "include=author")
+        if #available(iOS 16.0, *) {
+            let includeParameter = request.url?.query()
+            XCTAssertNotNil(includeParameter)
+            XCTAssertEqual(includeParameter, "include=author")
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     func testBody() throws {
