@@ -11,17 +11,14 @@ import XCTest
 final class SwiftyHTTPTests: XCTestCase {
 
     enum CatRouter: SwiftyHTTPRouter {
-        case code200
+        case test
         
         var baseURL: URL? {
-            URL(string: "https://http.cat")
+            URL(string: "https://meowfacts.herokuapp.com")
         }
         
         var path: String {
-            switch self {
-            case .code200:
-                return "/200"
-            }
+            return "/"
         }
         
         var method: SwiftyHTTPMethod {
@@ -51,8 +48,7 @@ final class SwiftyHTTPTests: XCTestCase {
 
     func testDefaultRequest() {
         let expectation = expectation(description: "DefaultRequest")
-        SwiftyHTTP.request(with: CatRouter.code200) { result in
-            print(result)
+        SwiftyHTTP.request(with: CatRouter.test, log: true) { result in
             expectation.fulfill()
         }
         waitForExpectations(timeout: 30, handler: nil)

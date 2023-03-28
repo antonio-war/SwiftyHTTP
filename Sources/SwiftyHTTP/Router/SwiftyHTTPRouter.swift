@@ -23,7 +23,7 @@ public extension SwiftyHTTPRouter {
     
     var request: URLRequest {
         get throws {
-            guard let baseURL, var url = URL(string: path, relativeTo: baseURL) else {
+            guard let baseURL, var url = (path == "" ? URL(string: "/", relativeTo: baseURL) : URL(string: path, relativeTo: baseURL)) else {
                 throw URLError(.badURL)
             }
             
