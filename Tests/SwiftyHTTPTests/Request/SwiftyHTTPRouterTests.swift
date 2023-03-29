@@ -10,7 +10,7 @@ import XCTest
 
 final class SwiftyHTTPRouterTests: XCTestCase {
     
-    enum TestRouter: SwiftyHTTPRouter {
+    enum TestRouter: SwiftyHTTPRequest {
         case articles
         
         var baseURL: URL? {
@@ -41,7 +41,7 @@ final class SwiftyHTTPRouterTests: XCTestCase {
             ]
         }
         
-        var body: SwiftyHTTPBody? {
+        var body: SwiftyHTTPRequestBody? {
             "Hello World"
         }
     }
@@ -63,10 +63,7 @@ final class SwiftyHTTPRouterTests: XCTestCase {
             let host = request.url?.host()
             XCTAssertNotNil(host)
             XCTAssertEqual(host!, "example.com")
-        } else {
-            // Fallback on earlier versions
         }
-        
     }
     
     func testPath() throws {
@@ -96,8 +93,6 @@ final class SwiftyHTTPRouterTests: XCTestCase {
             let includeParameter = request.url?.query()
             XCTAssertNotNil(includeParameter)
             XCTAssertEqual(includeParameter, "include=author")
-        } else {
-            // Fallback on earlier versions
         }
     }
     
