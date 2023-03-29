@@ -10,7 +10,7 @@ import XCTest
 
 final class SwiftyHTTPTests: XCTestCase {
 
-    enum CatRouter: SwiftyHTTPRouter {
+    enum CatRouter: SwiftyHTTPRequest {
         case test
         
         var baseURL: URL? {

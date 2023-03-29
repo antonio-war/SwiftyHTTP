@@ -7,6 +7,8 @@
 
 import Foundation
 
+public typealias SwiftyHTTPResponseBody = Decodable
+
 public struct SwiftyHTTPResponse<Body: SwiftyHTTPResponseBody>: URLResponseRepresentable {
     
     private var urlResponse: HTTPURLResponse
