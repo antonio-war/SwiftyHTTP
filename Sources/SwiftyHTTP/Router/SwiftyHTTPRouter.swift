@@ -31,7 +31,12 @@ public extension SwiftyHTTPRouter {
                 if #available(iOS 16.0, *) {
                     url.append(queryItems: parameters.map({URLQueryItem(name: $0.key, value: $0.value)}))
                 } else {
-                    // TODO: Query Items on iOS 15 and lower
+                    if var components = URLComponents(url: url, resolvingAgainstBaseURL: true) {
+                        components.queryItems = parameters.map({URLQueryItem(name: $0.key, value: $0.value)})
+                        if let composed = components.url {
+                            url = composed
+                        }
+                    }
                 }
             }
             

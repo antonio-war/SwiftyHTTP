@@ -14,7 +14,6 @@ public struct SwiftyHTTP {
                     }
                     return
                 }
-                
                 completion(.success(SwiftyHTTPResponse(urlResponse: response, body: data)))
             }.resume()
         } catch {
