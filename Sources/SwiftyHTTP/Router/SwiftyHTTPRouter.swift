@@ -13,7 +13,7 @@ public protocol SwiftyHTTPRouter: URLRequestRepresentable {
     var method: SwiftyHTTPMethod { get }
     var headers: [SwiftyHTTPHeader] { get }
     var parameters: [SwiftyHTTPQueryParameter] { get }
-    var body: SwiftyHTTPBody? { get }
+    var body: SwiftyHTTPRequestBody? { get }
 }
 
 public extension SwiftyHTTPRouter {

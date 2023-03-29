@@ -33,7 +33,7 @@ final class SwiftyHTTPTests: XCTestCase {
             []
         }
         
-        var body: SwiftyHTTPBody? {
+        var body: SwiftyHTTPRequestBody? {
             return nil
         }
     }
@@ -48,7 +48,7 @@ final class SwiftyHTTPTests: XCTestCase {
 
     func testDefaultRequest() {
         let expectation = expectation(description: "DefaultRequest")
-        SwiftyHTTP.request(with: CatRouter.test, log: true) { result in
+        SwiftyHTTP.request(with: CatRouter.test) { result in
             expectation.fulfill()
         }
         waitForExpectations(timeout: 30, handler: nil)

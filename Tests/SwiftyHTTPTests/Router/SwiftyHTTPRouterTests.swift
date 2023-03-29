@@ -41,7 +41,7 @@ final class SwiftyHTTPRouterTests: XCTestCase {
             ]
         }
         
-        var body: SwiftyHTTPBody? {
+        var body: SwiftyHTTPRequestBody? {
             "Hello World"
         }
     }

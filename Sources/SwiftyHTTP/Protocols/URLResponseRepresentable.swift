@@ -10,6 +10,6 @@ import Foundation
 public protocol URLResponseRepresentable {
     var url: URL? { get }
     var statusCode: Int { get }
-    var headers: [SwiftyHTTPHeader] { get }
+    var headers: [AnyHashable: Any] { get }
     func callAsFunction() throws -> HTTPURLResponse
 }
