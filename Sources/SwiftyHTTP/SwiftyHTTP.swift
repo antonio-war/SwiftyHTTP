@@ -3,9 +3,9 @@ import Foundation
 public struct SwiftyHTTP {
     private init() {}
     
-    public static func request(with representable: URLRequestRepresentable, completion: @escaping (Result<SwiftyHTTPResponse<Data>, Error>) -> ()) {
+    public static func request(_ request: SwiftyHTTPRequest, completion: @escaping (Result<SwiftyHTTPResponse<Data>, Error>) -> ()) {
         do {
-            URLSession.shared.dataTask(with: try representable()) { data, response, error in
+            URLSession.shared.dataTask(with: try request()) { data, response, error in
                 guard let data, let response = response as? HTTPURLResponse else {
                     if let error {
                         completion(.failure(error))
@@ -21,9 +21,9 @@ public struct SwiftyHTTP {
         }
     }
     
-    public static func request(with representable: URLRequestRepresentable) async -> Result<SwiftyHTTPResponse<Data>, Error> {
+    public static func request(_ request: SwiftyHTTPRequest) async -> Result<SwiftyHTTPResponse<Data>, Error> {
         return await withCheckedContinuation { continuation in
-            request(with: representable) { result in
+            Self.request(request) { result in
                 continuation.resume(returning: result)
             }
         }

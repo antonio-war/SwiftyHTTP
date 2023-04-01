@@ -14,9 +14,9 @@ public enum SwiftyHTTPAuthorizationHeaderValue: SwiftyHTTPHeaderValue {
     public var value: String {
         switch self {
             case .basic(let encodedCredentials):
-                return "Basic \(encodedCredentials)"
+                return "Basic \(!encodedCredentials.isEmpty ? encodedCredentials : "NULL")"
             case .bearer(let token):
-                return "Bearer \(token)"
+                return "Bearer \(!token.isEmpty ? token : "NULL")"
         }
     }
 }
