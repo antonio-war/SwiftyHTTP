@@ -11,12 +11,12 @@ public struct SwiftyHTTPQueryParameter: KeyValueRepresentable {
     public var key: String
     public var value: String
     
-    init(key: String, value: String) {
+    public init(key: String, value: String) {
         self.key = key
         self.value = value
     }
     
-    init(key: String, value: Any) {
+    public init(key: String, value: Any) {
         self.key = key
         self.value = "\(value)"
     }
