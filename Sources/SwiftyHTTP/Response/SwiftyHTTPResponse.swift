@@ -26,7 +26,7 @@ public struct SwiftyHTTPResponse<Body: SwiftyHTTPResponseBody>: URLResponseRepre
         urlResponse.allHeaderFields
     }
 
-    init(urlResponse: HTTPURLResponse, body: Body) {
+    public init(urlResponse: HTTPURLResponse, body: Body) {
         self.urlResponse = urlResponse
         self.body = body
     }
