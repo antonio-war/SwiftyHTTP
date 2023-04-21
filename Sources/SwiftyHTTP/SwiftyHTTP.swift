@@ -28,4 +28,14 @@ public struct SwiftyHTTP {
             }
         }
     }
+    
+    public static func request(_ request: SwiftyHTTPRequest) async throws -> SwiftyHTTPResponse<Data> {
+        let result: Result<SwiftyHTTPResponse<Data>, Error> = await Self.request(request)
+        switch result {
+        case .success(let response):
+            return response
+        case .failure(let error):
+            throw error
+        }
+    }
 }
