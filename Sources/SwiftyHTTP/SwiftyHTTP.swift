@@ -29,7 +29,7 @@ public struct SwiftyHTTP {
         }
     }
         
-    public static func throwableRequest(_ request: SwiftyHTTPRequest) async throws -> SwiftyHTTPResponse<Data> {
+    public static func throwingRequest(_ request: SwiftyHTTPRequest) async throws -> SwiftyHTTPResponse<Data> {
         let result: Result<SwiftyHTTPResponse<Data>, Error> = await Self.request(request)
         switch result {
         case .success(let response):
