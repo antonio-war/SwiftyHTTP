@@ -12,6 +12,7 @@ public enum SwiftyHTTPHeader: KeyValueRepresentable {
     case contentType(SwiftyHTTPContentTypeHeaderValue)
     case accept(SwiftyHTTPAcceptHeaderValue)
     case authorization(SwiftyHTTPAuthorizationHeaderValue)
+    case custom(String, String)
     
     public var key: String {
         switch self {
@@ -21,6 +22,8 @@ public enum SwiftyHTTPHeader: KeyValueRepresentable {
             return "Accept"
         case .authorization:
             return "Authorization"
+        case .custom(let key, _):
+            return key
         }
     }
     
@@ -32,6 +35,8 @@ public enum SwiftyHTTPHeader: KeyValueRepresentable {
             return swiftyHTTPAccept.value
         case .authorization(let swiftyHTTPAuthorization):
             return swiftyHTTPAuthorization.value
+        case .custom(_, let value):
+            return value
         }
     }
 }
