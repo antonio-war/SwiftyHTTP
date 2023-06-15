@@ -12,7 +12,7 @@ let package = Package(
             targets: ["SwiftyHTTP"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/antonio-war/SwiftyCache", branch: "develop")
+        .package(url: "https://github.com/antonio-war/SwiftyCache", from: .init(0, 2, 0))
     ],
     targets: [
         .target(
