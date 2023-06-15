@@ -16,6 +16,18 @@ public protocol SwiftyHTTPRequest: URLRequestRepresentable {
     var headers: [SwiftyHTTPHeader] { get }
     var parameters: [SwiftyHTTPQueryParameter] { get }
     var body: SwiftyHTTPRequestBody? { get }
+    var timeout: TimeInterval { get }
+    var cachePolicy: URLRequest.CachePolicy { get }
+}
+
+public extension SwiftyHTTPRequest {
+    var timeout: TimeInterval {
+        return 60
+    }
+    
+    var cachePolicy: URLRequest.CachePolicy {
+        return .reloadIgnoringLocalCacheData
+    }
 }
 
 public extension SwiftyHTTPRequest {    
@@ -48,6 +60,9 @@ public extension SwiftyHTTPRequest {
             if let body {
                 request.httpBody = try JSONEncoder().encode(body)
             }
+            
+            request.cachePolicy = cachePolicy
+            request.timeoutInterval = timeout
             
             return request
         }

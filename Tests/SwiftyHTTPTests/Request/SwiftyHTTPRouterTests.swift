@@ -44,6 +44,14 @@ final class SwiftyHTTPRouterTests: XCTestCase {
         var body: SwiftyHTTPRequestBody? {
             "Hello World"
         }
+        
+        var timeout: TimeInterval {
+            return 15
+        }
+        
+        var cachePolicy: URLRequest.CachePolicy {
+            return .returnCacheDataElseLoad
+        }
     }
 
     private var request: URLRequest!
@@ -102,5 +110,15 @@ final class SwiftyHTTPRouterTests: XCTestCase {
         
         let decoded = try JSONDecoder().decode(String.self, from: body!)
         XCTAssertEqual(decoded, "Hello World")
+    }
+    
+    func testTimeout() throws {
+        let timeout = request.timeoutInterval
+        XCTAssertEqual(timeout, 15)
+    }
+    
+    func testCachePolicy() throws {
+        let cachePolicy = request.cachePolicy
+        XCTAssertEqual(cachePolicy, .returnCacheDataElseLoad)
     }
 }
