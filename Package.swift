@@ -11,17 +11,15 @@ let package = Package(
             name: "SwiftyHTTP",
             targets: ["SwiftyHTTP"]),
     ],
-    dependencies: [
-        .package(url: "https://github.com/antonio-war/SwiftyCache", from: .init(0, 2, 0))
-    ],
     targets: [
         .target(
             name: "SwiftyHTTP",
             dependencies: [
-                "SwiftyCache"
             ]),
         .testTarget(
             name: "SwiftyHTTPTests",
-            dependencies: ["SwiftyHTTP"]),
+            dependencies: [
+                "SwiftyHTTP"
+            ]),
     ]
 )

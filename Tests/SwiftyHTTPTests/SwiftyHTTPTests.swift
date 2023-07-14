@@ -48,7 +48,7 @@ final class SwiftyHTTPTests: XCTestCase {
 
     func testDefaultRequest() {
         let expectation = expectation(description: "DefaultRequest")
-        SwiftyHTTP.request(CatRouter.test) { result in
+        SwiftyHTTP.request(CatRouter.test, cache: URLCache()) { result in
             expectation.fulfill()
         }
         waitForExpectations(timeout: 30, handler: nil)
