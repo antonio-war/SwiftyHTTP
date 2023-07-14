@@ -3,7 +3,7 @@ import Foundation
 public struct SwiftyHTTP {
     private init() {}
     
-    public static func request(_ request: SwiftyHTTPRequest, cache: URLCache = URLCache(), completion: @escaping (Result<SwiftyHTTPResponse<Data>, Error>) -> ()) {
+    public static func request(_ request: SwiftyHTTPRequest, cache: URLCache, completion: @escaping (Result<SwiftyHTTPResponse<Data>, Error>) -> ()) {
         do {
             let configuration = URLSessionConfiguration.default
             configuration.urlCache = cache
@@ -24,7 +24,7 @@ public struct SwiftyHTTP {
         }
     }
     
-    public static func request(_ request: SwiftyHTTPRequest, cache: URLCache = URLCache()) async -> Result<SwiftyHTTPResponse<Data>, Error> {
+    public static func request(_ request: SwiftyHTTPRequest, cache: URLCache) async -> Result<SwiftyHTTPResponse<Data>, Error> {
         return await withCheckedContinuation { continuation in
             Self.request(request, cache: cache) { result in
                 continuation.resume(returning: result)
@@ -32,7 +32,7 @@ public struct SwiftyHTTP {
         }
     }
         
-    public static func throwingRequest(_ request: SwiftyHTTPRequest, cache: URLCache = URLCache()) async throws -> SwiftyHTTPResponse<Data> {
+    public static func throwingRequest(_ request: SwiftyHTTPRequest, cache: URLCache) async throws -> SwiftyHTTPResponse<Data> {
         let result: Result<SwiftyHTTPResponse<Data>, Error> = await Self.request(request, cache: cache)
         switch result {
         case .success(let response):
