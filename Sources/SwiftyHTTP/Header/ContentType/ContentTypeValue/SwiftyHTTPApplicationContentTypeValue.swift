@@ -21,4 +21,5 @@ public enum SwiftyHTTPApplicationContentTypeValue: String, SwiftyHTTPContentType
     case xml
     case zip
     case xWWWFormUrlencoded = "x-www-form-urlencoded"
+    case msExcel = "vnd.ms-excel"
 }
